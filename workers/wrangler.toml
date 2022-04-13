@@ -1,8 +1,11 @@
 name = "my-test-worker"
 type = "javascript"
-
-account_id = ""
+account_id = "5522582cffb7f2f5ec282ec70f26a80e"
 workers_dev = true
 route = ""
 zone_id = ""
 compatibility_date = "2022-04-12"
+
+[site]
+bucket="../dist/apps/myapp"
+entry-point = "workers-site"
