@@ -1,8 +1,4 @@
 {
-  "/api": {
-    "target": "http://127.0.0.1:8787",
-    "secure": false
-  },
   "/apis": {
     "target": "https://my-test-worker.logeshcbe131197.workers.dev",
     "secure": false

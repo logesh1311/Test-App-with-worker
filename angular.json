@@ -72,7 +72,8 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "appWorkerTest:build:production" 
+              "browserTarget": "appWorkerTest:build:production",
+              "proxyConfig": "src/proxy.json"
             },
             "development": {
               "browserTarget": "appWorkerTest:build:development",

@@ -21,5 +21,13 @@ export class AppComponent implements OnInit {
         console.log(err);
       }
     );
+    this.http.get('https://my-test-worker.logeshcbe131197.workers.dev').subscribe(
+      (data: any) => {
+        console.log(data);
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
   }
 }
