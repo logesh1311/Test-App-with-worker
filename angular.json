@@ -20,7 +20,11 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+<<<<<<< HEAD
             "outputPath": "dist/app-worker-test",
+=======
+            "outputPath": "dist/my-app",
+>>>>>>> 38054024143ad664b588f1dc8d4aba901d3cc868
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -72,10 +76,17 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
+<<<<<<< HEAD
               "browserTarget": "appWorkerTest:build:production"
             },
             "development": {
               "browserTarget": "appWorkerTest:build:development"
+=======
+              "browserTarget": "myApp:build:production"
+            },
+            "development": {
+              "browserTarget": "myApp:build:development"
+>>>>>>> 38054024143ad664b588f1dc8d4aba901d3cc868
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +94,11 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
+<<<<<<< HEAD
             "browserTarget": "appWorkerTest:build"
+=======
+            "browserTarget": "myApp:build"
+>>>>>>> 38054024143ad664b588f1dc8d4aba901d3cc868
           }
         },
         "test": {
@@ -107,5 +122,9 @@
       }
     }
   },
+<<<<<<< HEAD
   "defaultProject": "appWorkerTest"
+=======
+  "defaultProject": "myApp"
+>>>>>>> 38054024143ad664b588f1dc8d4aba901d3cc868
 }
