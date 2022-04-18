@@ -5,7 +5,3 @@ workers_dev = true
 route = ""
 zone_id = ""
 compatibility_date = "2022-04-12"
-
-[site]
-bucket="../dist/apps/myapp"
-entry-point = "workers-site"
