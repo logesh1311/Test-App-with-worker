@@ -19,9 +19,15 @@ async function handleRequest(request) {
   }
   console.log(JSON.stringify(request))
   console.log(JSON.stringify(data))
-  return new Response(JSON.stringify(data), {
-    status: 200, headers: {
-      'content-type': 'application/json;charset=UTF-8',
-    },
+  console.log(request.url)
+  if(request.url.includes('getUserdata')){
+    return new Response(JSON.stringify(data), {
+      status: 200, headers: {
+        'content-type': 'application/json;charset=UTF-8',
+      },
+    });
+  }
+  return new Response('Worker running', {
+    status: 200
   });
 }

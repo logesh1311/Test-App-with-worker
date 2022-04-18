@@ -12,8 +12,7 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    console.log(navigator.geolocation)
-    this.http.get('/apis').subscribe(
+    this.http.get('/apis/getUserdata').subscribe(
       (data: any) => {
         console.log(data);
       },
@@ -21,7 +20,7 @@ export class AppComponent implements OnInit {
         console.log(err);
       }
     );
-    this.http.get('https://my-test-worker.logeshcbe131197.workers.dev').subscribe(
+    this.http.get('https://my-test-worker.logeshcbe131197.workers.dev/getUserdata').subscribe(
       (data: any) => {
         console.log(data);
       },
