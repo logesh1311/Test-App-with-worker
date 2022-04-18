@@ -12,7 +12,7 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   ngOnInit(): void {
-    this.http.get('/apis/getUserdata', {
+    this.http.get('/proxyApi/getUserdata', {
       responseType: 'json',
       headers: {
         'content-type': 'application/json'
@@ -25,13 +25,21 @@ export class AppComponent implements OnInit {
         console.log(err);
       }
     );
-    // this.http.get('https://my-test-worker.logeshcbe131197.workers.dev/getUserdata').subscribe(
-    //   (data: any) => {
-    //     console.log(data);
-    //   },
-    //   (err: any) => {
-    //     console.log(err);
-    //   }
-    // );
+    this.http.get('https://my-test-worker.logeshcbe131197.workers.dev/getUserdata').subscribe(
+      (data: any) => {
+        console.log(data);
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
+    this.http.get('/apis').subscribe(
+      (data: any) => {
+        console.log(data);
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    );
   }
 }
