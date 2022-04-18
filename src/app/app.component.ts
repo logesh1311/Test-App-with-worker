@@ -13,7 +13,10 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.http.get('/apis/getUserdata', {
-      responseType: 'json'
+      responseType: 'json',
+      headers: {
+        'content-type': 'application/json'
+      }
     }).subscribe(
       (data: any) => {
         console.log(data);
@@ -22,13 +25,13 @@ export class AppComponent implements OnInit {
         console.log(err);
       }
     );
-    this.http.get('https://my-test-worker.logeshcbe131197.workers.dev/getUserdata').subscribe(
-      (data: any) => {
-        console.log(data);
-      },
-      (err: any) => {
-        console.log(err);
-      }
-    );
+    // this.http.get('https://my-test-worker.logeshcbe131197.workers.dev/getUserdata').subscribe(
+    //   (data: any) => {
+    //     console.log(data);
+    //   },
+    //   (err: any) => {
+    //     console.log(err);
+    //   }
+    // );
   }
 }
