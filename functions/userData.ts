@@ -1,16 +1,4 @@
-addEventListener("fetch", (event: any) => {
-  event.respondWith(
-    handleRequest(event.request).catch(
-      (err) => {
-        console.log(err);
-        return new Response(err.stack, { status: 500 })
-      }
-    )
-  );
-});
-
-
-async function handleRequest(request: any) {
+export async function onRequestGet(request: any) {
   const data = {
     ip: request.headers.get('CF-Connecting-IP'),
     realip: request.headers.get('x-real-ip'),
