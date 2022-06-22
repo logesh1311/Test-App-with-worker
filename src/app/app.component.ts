@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  title = 'appWorkerTest';
+  title = 'test app';
 
   constructor(private http: HttpClient) {}
 
@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
       (err: any) => {
         console.log(err);
       }
-      
+
     );
     this.http.get('https://my-test-worker.logeshcbe131197.workers.dev/getUserdata').subscribe(
       (data: any) => {
