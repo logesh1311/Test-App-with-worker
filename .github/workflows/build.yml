@@ -1,0 +1,37 @@
+name: Build and Test
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  Build_Test_Analyse_PR:
+    name: build_test
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'pull_request' }}
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          # fetch-depth to fetch all history of all branches & tags
+          fetch-depth: 0
+      - name: Use Node.js
+        uses: actions/setup-node@v3.3.0
+        with:
+          node-version: '14.14.33'
+      - run: npm install -g npm@8.1.3
+      - run: npm i -g npm-cli-login nx
+      - run: npm install 
+      - run: npx nx affected:build --base=origin/develop --head=$PR_BRANCH_NAME # build apps and libs affected in the PR
+      - run: npx nx run-many --target=test --all --code-coverage # testing all since if there is no affected apps/libs no tests are run,
+      # which fails sonarcloud scan since no report xml or coverage folder is present
+      - name: SonarCloud Scan
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          echo GITHUB_TOKEN: secrets.GITHUB_TOKEN  # Needed to get PR information, if any
+          echo SONAR_TOKEN: secrets.SONAR_TOKEN 
+
+  
