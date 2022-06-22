@@ -24,7 +24,7 @@ jobs:
       - run: npm install -g npm@8.1.3
       - run: npm i -g npm-cli-login nx
       - run: npm install 
-      - run: npx nx affected:build --base=origin/develop --head=$PR_BRANCH_NAME # build apps and libs affected in the PR
+      - run: npx nx affected:build --base=origin/develop --head=main # build apps and libs affected in the PR
       - run: npx nx run-many --target=test --all --code-coverage # testing all since if there is no affected apps/libs no tests are run,
       # which fails sonarcloud scan since no report xml or coverage folder is present
       - name: SonarCloud Scan
