@@ -1,5 +1,5 @@
 {
-  "/proxyApi": {
+  "proxyApi": {
     "target": "https://my-test-worker.logeshcbe131197.workers.dev",
     "secure": false
   }
