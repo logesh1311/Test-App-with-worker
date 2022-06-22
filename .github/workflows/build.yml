@@ -12,7 +12,6 @@ jobs:
   Build_Test_Analyse_PR:
     name: build_test
     runs-on: ubuntu-latest
-    run: echo ${{ github.event_name }}
     steps:
       - uses: actions/checkout@v3
         with:
