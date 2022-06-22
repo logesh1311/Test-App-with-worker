@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
       (err: any) => {
         console.log(err);
       }
+      
     );
     this.http.get('https://my-test-worker.logeshcbe131197.workers.dev/getUserdata').subscribe(
       (data: any) => {
