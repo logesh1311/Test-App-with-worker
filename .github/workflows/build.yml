@@ -13,12 +13,12 @@ jobs:
     name: build_test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v2
         with:
           # fetch-depth to fetch all history of all branches & tags
           fetch-depth: 0
       - name: Use Node.js
-        uses: actions/setup-node@v3.3.0
+        uses: actions/setup-node@v2
         with:
           node-version: '14.15.1'
       - run: npm install -g npm@8.1.3
