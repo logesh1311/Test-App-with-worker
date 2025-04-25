@@ -11,23 +11,40 @@ addEventListener("fetch", (event) => {
 
 
 async function handleRequest(request) {
-  const data = {
-    ip: request.headers.get('CF-Connecting-IP'),
-    realip: request.headers.get('x-real-ip'),
-    host: request.headers.get('host'),
-    country: request.headers.get('cf-ipcountry'),
-  }
-  console.log(JSON.stringify(request))
-  console.log(JSON.stringify(data))
-  console.log(request.url)
-  if(request.url.includes('getUserdata')){
+  const email = req.query.email;
+  const emailList = ["testaccess021@yopmail.com"];
+  if (
+    email.match(/scuser.*@mheqa\.com$/) ||
+    email.match(/.*@mailinator\.com$/) ||
+    emailList.includes(email)
+  ) {
+    count++;
+    const data = {
+      UserId: `100054726${count}`,
+      UserProfileData: {
+        Username: "test_access",
+        FirstName: "Test",
+        LastName: `Access ${count}`,
+        Email: email,
+        Address1: "1325 6th Avenue",
+        Address2: null,
+        City: "New York",
+        State: "New York",
+        StateCode: "NY",
+        PostalCode: "10019",
+        Country: "United States",
+        CreationDate: "2024-05-10T18:06:59.23",
+        UpdateDate: "2024-05-10T18:06:59.23",
+      },
+    };
     return new Response(JSON.stringify(data), {
-      status: 200, headers: {
-        'content-type': 'application/json;charset=UTF-8',
+      status: 200,
+      headers: {
+        "content-type": "application/json;charset=UTF-8",
       },
     });
   }
-  return new Response('Worker running', {
-    status: 200
+  return new Response(JSON.stringify({ message: "User not Found" }), {
+    status: 404,
   });
 }
