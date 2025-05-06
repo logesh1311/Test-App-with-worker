@@ -12,7 +12,7 @@ addEventListener("fetch", (event) => {
 
 async function handleRequest(request) {
   const email = req.query.email;
-  const emailList = ["testaccess021@yopmail.com"];
+  const emailList = ["seena.singh@mailinator.com"];
   if (
     email.match(/scuser.*@mheqa\.com$/) ||
     email.match(/.*@mailinator\.com$/) ||
